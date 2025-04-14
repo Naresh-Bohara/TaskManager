@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import UserModel from '../users/user.model.js';
 
 class AuthService {
