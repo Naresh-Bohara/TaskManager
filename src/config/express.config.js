@@ -31,11 +31,6 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
-
 //  Correct Rate Limiting Middleware (fixed `windowMs`)
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, 
