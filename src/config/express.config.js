@@ -21,8 +21,18 @@ app.use(cookieParser());
 app.use(helmet());
 
 //  Correct CORS - only use once!
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://task-manager-nb.netlify.app', 
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
+app.use(cors({
+  origin: allowedOrigins,
   credentials: true,
 }));
 
@@ -39,7 +49,7 @@ const csrfProtection = csrf({
   cookie: {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production', 
-    sameSite: 'Lax',
+    sameSite: 'None',
   },
   header: 'CSRF-Token',
 });
