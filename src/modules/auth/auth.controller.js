@@ -32,7 +32,7 @@ class AuthController {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         maxAge: 10 * 60 * 60 * 1000,
-        sameSite: 'Strict',
+        sameSite: 'None',
       });
 
       return sendSuccess(res, 'Login successful!', { id: user._id, token: token });
